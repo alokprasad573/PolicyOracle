@@ -25,5 +25,5 @@ if __name__ == '__main__':
     print(f"Network: http://0.0.0.0:{port}")
     print("-" * 50)
     
-    serve(app, host='0.0.0.0', port=port, debug=True)
+    serve(app, host='0.0.0.0', port=port)
     
