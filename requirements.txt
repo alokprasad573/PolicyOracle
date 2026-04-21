@@ -16,3 +16,4 @@ easyocr
 pdf2image
 pyyaml
 pypdf
+waitress
