@@ -4,7 +4,6 @@ langchain-community
 langchain-core
 langchain-text-splitters
 sentence-transformers
-faiss-cpu
 PyPDF2
 scikit-learn
 python-dotenv
@@ -17,3 +16,5 @@ pdf2image
 pyyaml
 pypdf
 waitress
+pinecone
+
