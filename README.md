@@ -16,28 +16,28 @@ PolicyOracle addresses these challenges by providing a seamless, automated claim
 ```mermaid
 graph TD
 %% Global Settings
-accTitle: AI Insurance Claims Flow Chart with FAISS
-accDescr: Updated flow chart utilizing FAISS as the local vector database for RAG.
+accTitle: AI Insurance Claims Flow Chart with Pinecone
+accDescr: Updated flow chart utilizing Pinecone as a vector database for RAG.
 
 %% Data Processing & Storage Branch
 Dataset[("<b>Dataset</b><br/>Policies, Claims,<br/>Regulations")] --> EDA
 EDA{{"<b>EDA</b><br/>Anomalies Detection"}} --> Embeddings
-Embeddings["<b>Embeddings</b><br/>Semantic Vectorization"] --> FAISS
+Embeddings["<b>Embeddings</b><br/>Semantic Vectorization"] --> Pinecone
 
 subgraph Storage ["Knowledge Base"]
-    FAISS[("<b>FAISS Index</b><br/>Local Vector Storage<br/>(Similarity Search)")]
+    Pinecone[("<b>Pinecone</b><br/>Vector Storage<br/>(Similarity Search)")]
 end
 
 %% User Input Branch
 User_Query(["<b>User Inquiry</b><br/>Claim Details"]) --> API
-API[["<b>API Gateway</b><br/>FastAPI Entry"]]
+API[["<b>API Gateway</b><br/>Flask"]]
 
 %% Main Logic Container
 subgraph Processing_Logic ["LLM Orchestration (LangChain)"]
     direction TB
     
     API --> Retriever
-    FAISS -.->|Vector Search| Retriever
+    Pinecone -.->|Vector Search| Retriever
     
     Retriever["<b>Retriever</b><br/>Context Fetching"] --> Prompt_Template
     Prompt_Template["<b>Prompt Engine</b><br/>Context Injection"] --> LLM_Chain
@@ -63,7 +63,7 @@ classDef output fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5;
 
 %% Apply Classes
 class Dataset,EDA,Embeddings data;
-class FAISS vdb;
+class Pinecone vdb;
 class User_Query,API input;
 class Prompt_Template,LLM_Chain,Output_Parsing,Retriever logic;
 class LLM_Provider external;
@@ -83,11 +83,11 @@ linkStyle 3,5 stroke:#6366f1,stroke-width:3px,stroke-dasharray: 5 5;
 #### 🛰 1. Data Ingestion & EDA
 PolicyOracle aggregates customer, medical, and regulatory datasets, performing automated **Exploratory Data Analysis (EDA)** to validate integrity and identify anomalies. This ensures the AI operates on high-context, verified, and clean data.
 
-#### 🧬 2. Embedding & Local Storage (FAISS)
-Textual data is converted into high-dimensional **Vector Embeddings** to capture complex semantic nuances. These vectors are indexed in a local **FAISS (Facebook AI Similarity Search)** database, creating a high-performance knowledge base for similarity-based retrieval.
+#### 🧬 2. Embedding & KnowledgeBase (Pinecone)
+Textual data is converted into high-dimensional **Vector Embeddings** to capture complex semantic nuances. These vectors are indexed in a local **Pinecone** database, creating a high-performance knowledge base for similarity-based retrieval.
 
 #### 🧠 3. LangChain Retrieval & Orchestration
-When a user submits a claim via the **FastAPI Gateway**, the system triggers a **LangChain Retriever**. This component performs a vector search against the FAISS index to fetch the most relevant policy context. High-performance **Groq AI** LLMs then evaluate the claim using:
+When a user submits a claim via the **Flask**, the system triggers a **LangChain Retriever**. This component performs a vector search against the Pinecone index to fetch the most relevant policy context. High-performance **Groq AI** LLMs then evaluate the claim using:
 *   **Contextual Reasoning**: Merging user queries with fetched policy snippets.
 *   **Fraud Detection**: Identifying inconsistent patterns across dataset history.
 *   **Coverage Verification**: Automatically mapping claims to specific policy limits and terms.
