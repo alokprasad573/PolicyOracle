@@ -165,12 +165,25 @@
                         <div class="space-y-2">
                             <label class="text-sm font-semibold text-slate-700">Consultation Receipt Upload</label>
                             <div class="relative group">
-                                <!-- Customized specifically for PDF files -->
-                                <input type="file" accept=".pdf" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
-                                <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center group-hover:border-blue-400 group-hover:bg-blue-50 transition-all">
-                                    <svg class="mx-auto h-12 w-12 text-slate-400 group-hover:text-blue-500 mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                    <p class="text-slate-600 font-medium">Click to upload or drag and drop</p>
-                                    <p class="text-slate-400 text-xs font-bold text-blue-600">PDF ONLY (Up to 10MB)</p>
+                                <!-- Specialized PDF Upload Component -->
+                                <input type="file" id="file-input" name="receipt" accept=".pdf" required 
+                                       class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                                <div id="drop-zone" class="border-2 border-dashed border-slate-200 rounded-2xl p-10 text-center group-hover:border-red-400 group-hover:bg-red-50/30 transition-all duration-300">
+                                    <div class="mb-4 relative inline-block">
+                                        <!-- PDF Icon -->
+                                        <svg class="mx-auto h-16 w-16 text-slate-300 group-hover:text-red-500 transition-colors duration-300" 
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <path d="M11 13a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0-1-1z"></path>
+                                            <path d="M15 13a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0-1-1z"></path>
+                                            <path d="M7 13a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0v-4a1 1 0 0 0-1-1z"></path>
+                                        </svg>
+                                        <div class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-md shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">PDF</div>
+                                    </div>
+                                    <p id="file-prompt" class="text-slate-600 font-semibold mb-1">Click to upload or drag & drop</p>
+                                    <p id="file-chosen" class="text-blue-600 font-bold text-sm hidden truncate max-w-xs mx-auto"></p>
+                                    <p class="text-slate-400 text-xs mt-2">Maximum file size: <span class="font-bold text-slate-500">10MB</span></p>
                                 </div>
                             </div>
                         </div>

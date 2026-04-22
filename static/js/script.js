@@ -33,3 +33,27 @@ document.getElementById('insuranceForm').addEventListener('submit', function(e) 
     // Change section
     showSection('result');
 });
+
+// File Upload UI Update
+const fileInput = document.getElementById('file-input');
+const fileChosen = document.getElementById('file-chosen');
+const filePrompt = document.getElementById('file-prompt');
+const dropZone = document.getElementById('drop-zone');
+
+if (fileInput) {
+    fileInput.addEventListener('change', function() {
+        if (this.files && this.files.length > 0) {
+            const fileName = this.files[0].name;
+            fileChosen.textContent = 'Selected: ' + fileName;
+            fileChosen.classList.remove('hidden');
+            filePrompt.textContent = 'Change file?';
+            dropZone.classList.add('bg-blue-50/50', 'border-blue-400');
+            dropZone.classList.remove('border-slate-200');
+        } else {
+            fileChosen.classList.add('hidden');
+            filePrompt.textContent = 'Click to upload or drag & drop';
+            dropZone.classList.remove('bg-blue-50/50', 'border-blue-400');
+            dropZone.classList.add('border-slate-200');
+        }
+    });
+}
