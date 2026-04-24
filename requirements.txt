@@ -1,20 +1,15 @@
 flask
+langchain
 langchain-groq
 langchain-community
 langchain-core
 langchain-text-splitters
 sentence-transformers
 PyPDF2
-scikit-learn
 python-dotenv
-numpy
-matplotlib
-opencv-python
-tiktoken
-easyocr
-pdf2image
-pyyaml
-pypdf
 waitress
 pinecone
+
+
+
 

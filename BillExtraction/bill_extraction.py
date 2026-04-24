@@ -61,6 +61,7 @@ if __name__ == "__main__":
         print(f"Error: Bill not found at {bill_path}")
     else:
         bill_text = get_bill_text(bill_path)
+        print(bill_text)
         invoice_info = get_invoice_info(bill_text)
 
         print(f"Disease: {invoice_info['disease']}")
