@@ -21,8 +21,6 @@ By automating these workflows, PolicyOracle reduces manual effort, ensures accur
 
 ## Features: 
 
-### Healthcare Claim Processing Pipeline
-
 1. **Automated Data Ingestion**: Gathers and structures unstructured medical data from various sources (patient records, diagnostic reports, claims, etc.).
 
 2. **RAG System**: Uses a smart Retrieval-Augmented Generation system to ensure accurate, context-aware claim analysis.
