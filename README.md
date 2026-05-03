@@ -1,4 +1,4 @@
-# PolicyOracle - AI Powered Insurance Claim Intelligence
+# PolicyOracle - AI Powered Insurance Claim 
 PolicyOracle is an advanced RAG (Retrieval-Augmented Generation) framework designed to automate the lifecycle of insurance claim processing—from raw data ingestion to final audit reporting.
 
 ## Problem Statement: 
