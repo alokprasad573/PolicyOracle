@@ -210,7 +210,7 @@ PolicyOracle/
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/alokprasad573/PolicyOracle.git
 cd PolicyOracle
 ```
 
@@ -250,4 +250,16 @@ Open your web browser and navigate to:
 ```text
 http://127.0.0.1:5000/
 ```
-From here, you can upload a medical claim document to test the AI evaluation workflow!
+From here, you can upload a medical claim document to test the AI evaluation workflow!'
+
+## 🤝 Contributions
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/alokprasad573/PolicyOracle/issues) if you want to contribute.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
